@@ -1,0 +1,48 @@
+{
+  "nombre": "Ridge para costo unitario de transformación",
+  "target": "costo_transformacion",
+  "unidad_target": "COP por unidad producida",
+  "predictors": [
+    "codigo_producto",
+    "volumen_lote",
+    "equipo_id",
+    "categoria_producto",
+    "insumo_1",
+    "insumo_2",
+    "modalidad_proceso",
+    "tipo_equipo",
+    "num_insumos"
+  ],
+  "especificacion": "B: predictores de A + tipo_equipo + num_insumos",
+  "filtro_entrenamiento": "volumen_lote > 0 y num_insumos > 0; respuesta no faltante",
+  "n_ordenes_entrenamiento": 529,
+  "n_codigos_producto": 145,
+  "cv_seleccion_alpha": "GroupKFold(n_splits=5), agrupado por codigo_producto; selección de alpha por RMSE",
+  "alpha_seleccionado": 3.1622776601683795,
+  "rmse_cv_seleccion_cop_unidad": 11.54000958069963,
+  "nota_validacion": "El score de esta búsqueda se usa para seleccionar alpha y no debe reportarse como estimación externa imparcial. El desempeño para comparación de modelos debe tomarse de la validación anidada registrada en el notebook.",
+  "referencia_validacion_anidada_modelo_B": {
+    "aleatoria_repetida": {
+      "RMSE_media": 10.51,
+      "MAE_media": 7.27,
+      "R2_media": 0.509
+    },
+    "agrupada_por_codigo_producto": {
+      "RMSE_media": 11.401,
+      "MAE_media": 8.384,
+      "R2_media": 0.317
+    }
+  },
+  "unidades_entrada": {
+    "duracion_proceso": "h (no predictor en esta especificación)",
+    "costo": "COP",
+    "consumos": "kg (consumos reales no incluidos)",
+    "volumen_lote": "unidad no especificada"
+  },
+  "versiones": {
+    "python": "3.13.9",
+    "scikit_learn": "1.7.1",
+    "joblib": "1.5.2"
+  },
+  "artefacto": "modelo_ridge_costo_transformacion.joblib"
+}
