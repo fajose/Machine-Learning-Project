@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Entornos locales
+.venv/
+venv/
+env/
+
+# Secretos y configuración local
+.env
+.env.*
+!.env.example
+
+# Archivos locales del sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs y temporales
+*.log
+*.tmp
+*.swp
